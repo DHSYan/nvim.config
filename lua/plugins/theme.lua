@@ -1,65 +1,10 @@
--- -- Captppuccin
--- local catppuccin = {
---   "catppuccin/nvim",
---   name = "catppuccin",
---   priority = 1000,
---   config = function()
---     require('catppuccin').setup({
---       flavour = "mocha"
---     })
---
---     vim.cmd.colorscheme 'catppuccin'
---   end,
--- }
---
--- -- Kanagawa
--- local kanagawa = {
---     "rebelot/kanagawa.nvim",
---     priority = 1000,
---     config = function()
---         require('kanagawa').setup({
---             theme = "lotus"
---         })
---         vim.cmd.colorscheme 'kanagawa'
---     end
--- }
---
--- local tokyonight = {
---     "folke/tokyonight.nvim",
---     lazy = false,
---     priority = 1000,
---     opts = {},
---     config = function()
---         require("tokyonight").setup({
---             style = 'night',
---             transparent = false,
---
---         })
---         vim.cmd.colorscheme 'tokyonight'
---         vim.cmd("hi ColorColumn guibg='grey'")
---     end
--- }
---
--- local flexoki = {
---     'kepano/flexoki-neovim',
---     name = 'flexoki',
---     config = function() 
---         require("flexoki").setup({
---         })
---         vim.cmd.colorscheme 'flexoki-dark'
---         vim.cmd("hi ColorColumn guibg='grey'")
---     end
---
--- }
-
 return {
-
   {
     "tjdevries/colorbuddy.nvim",
     lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme("gruvbox-minor")
+      vim.cmd.colorscheme("base16-ayu-dark")
       vim.cmd("hi ColorColumn guibg='grey'")
     end,
   },
@@ -72,40 +17,41 @@ return {
   "jesseleite/nvim-noirbuddy",
   "vim-scripts/MountainDew.vim",
   "miikanissi/modus-themes.nvim",
-  "rebelot/kanagawa.nvim",
+  { "rebelot/kanagawa.nvim",
+      opts = {
+          theme = "lotus",
+      }
+  },
   "gremble0/yellowbeans.nvim",
   "rockyzhang24/arctic.nvim",
-    { "folke/tokyonight.nvim",
-        config = function()
-            require("tokyonight").setup({
-                style = 'night',
-                transparent = false,
-
-            })
-        end
-    },
+  { "folke/tokyonight.nvim",
+      opts =  {
+          transparent = false,
+          style = 'night',
+      },
+  },
   "Shatur/neovim-ayu",
   "RRethy/base16-nvim",
   "xero/miasma.nvim",
   "cocopon/iceberg.vim",
-    { "kepano/flexoki-neovim",
-        name = 'flexoki',
-        -- config = function() 
-        --     require("flexoki").setup({
-        --     })
-        -- end
-    },
+  { "kepano/flexoki-neovim", name = 'flexoki', },
   "ntk148v/komau.vim",
-  { "catppuccin/nvim", name = "catppuccin" },
   "uloco/bluloco.nvim",
   "LuRsT/austere.vim",
   "ricardoraposo/gruvbox-minor.nvim",
   "NTBBloodbath/sweetie.nvim",
   {
     "maxmx03/fluoromachine.nvim",
-    -- config = function()
-    --   local fm = require "fluoromachine"
-    --   fm.setup { glow = true, theme = "fluoromachine" }
-    -- end,
+    opts = {
+            glow = true, 
+            theme = "fluoromachine" 
+        }
   },
+  { 
+    "catppuccin/nvim", 
+    name = "catppucin",
+    opts = {
+      flavour = "latte"
+    }
+  }
 }
