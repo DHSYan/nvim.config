@@ -48,10 +48,10 @@ return {
         }
   },
   { 
-    "catppuccin/nvim", 
+    "catppuccin/nvim",
     name = "catppucin",
-    opts = {
-      flavour = "latte"
-    }
+    -- opts = {
+    --   flavour = "latte"
+    -- }
   }
 }

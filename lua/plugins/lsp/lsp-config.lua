@@ -136,29 +136,29 @@ return {
         -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
         local capabilities = vim.lsp.protocol.make_client_capabilities()
         capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-
-        mason_lspconfig.setup_handlers({
-            function(server_name)
-                -- if server_name == "rust_analyzer" then
-                --     require('lspconfig').rust_analyzer.setup({
-                --         capabilities = capabilities,
-                --         settings = {
-                --             ['rust-analyzer'] = {
-                --                 diagnostics = {
-                --                     enable = false;
-                --                 }
-                --             }
-                --         },
-                --         on_attach = on_attach,
-                --     })
-                -- else
-                    require('lspconfig')[server_name].setup({
-                        capabilities = capabilities,
-                        on_attach = on_attach,
-                    })
-                -- end
-            end
-        })
+        --
+        -- mason_lspconfig.setup_handlers({
+        --     function(server_name)
+        --         -- if server_name == "rust_analyzer" then
+        --         --     require('lspconfig').rust_analyzer.setup({
+        --         --         capabilities = capabilities,
+        --         --         settings = {
+        --         --             ['rust-analyzer'] = {
+        --         --                 diagnostics = {
+        --         --                     enable = false;
+        --         --                 }
+        --         --             }
+        --         --         },
+        --         --         on_attach = on_attach,
+        --         --     })
+        --         -- else
+        --             require('lspconfig')[server_name].setup({
+        --                 capabilities = capabilities,
+        --                 on_attach = on_attach,
+        --             })
+        --         -- end
+        --     end
+        -- })
 
         -- Completion
         local cmp = require("cmp")
