@@ -7,6 +7,6 @@ return {
     -- require("plugins.org-mode")
 
     -- LSP STuff
-    -- require('plugins.lsp') -- I think this sources /nvim/lua/plugins/lsp/init.lua?
+    require('plugins.lsp') -- I think this sources /nvim/lua/plugins/lsp/init.lua?
 
 }
