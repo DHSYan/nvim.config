@@ -52,5 +52,26 @@ oil_opt = {
         },
     },   
 }
+vim.cmd("colorscheme retrobox")
+
 require("oil").setup(oil_opt)
 require("nvim-treesitter.configs").setup(treesitter_opt)
+require("telescope").setup()
+
+local Tele = require('telescope.builtin')
+
+-- Oil
+nmap("<leader>e", "<CMD>Oil<CR>", "Open Parent Directory")
+
+-- Telescope
+nmap('<leader>ff',
+    function ()
+        Tele.find_files({ hidden = true })
+    end,
+    "[f]ind [f]iles")
+nmap('<leader>T', vim.cmd.Telescope, "[T]elescope")
+nmap('<leader>J', ":Telescope jumplist<CR>", "[J]umplist")
+nmap('<leader>ws', builtin.live_grep, "[W]ord [S]earch")
+nmap('<leader>fb', builtin.buffers, "[f]ind [b]uffers")
+nmap('<leader>km', builtin.keymaps, "[K]ey[m]ap")
+
