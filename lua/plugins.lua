@@ -3,9 +3,9 @@ vim.pack.add({
     { src = 'https://github.com/stevearc/oil.nvim' },
     { src = 'https://github.com/nvim-tree/nvim-web-devicons' },
     { src = 'https://github.com/nvim-treesitter/nvim-treesitter' },
-    { src = 'https://github.com/nvim-telescope/telescope.nvim' },
-    { src = 'https://github.com/nvim-lua/plenary.nvim' },
-    { src = 'https://github.com/BurntSushi/ripgrep' },
+    -- { src = 'https://github.com/nvim-telescope/telescope.nvim' },
+    -- { src = 'https://github.com/nvim-lua/plenary.nvim' },
+    -- { src = 'https://github.com/BurntSushi/ripgrep' },
 })
 
 local nmap = require("util.nmap")
@@ -21,6 +21,7 @@ treesitter_opt = {
         "latex",
     },
     sync_install = false,
+    auto_install = true,
     highlight = {
         enable = true,
         disable = { "tex" , "latex"},
