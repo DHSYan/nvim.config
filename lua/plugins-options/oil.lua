@@ -1,4 +1,4 @@
-return {
+require('oil').setup({
     view_options = {
         -- Show files and directories that start with "."
         show_hidden = true,
@@ -19,5 +19,5 @@ return {
             { "type", "asc" },
             { "name", "asc" },
         },
-    },   
-}
+    },
+})

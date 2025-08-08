@@ -13,24 +13,5 @@ vim.keymap.set("x", "<leader>p", "\"_dP")
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
-vim.keymap.set("n", "<leader>nh", vim.cmd.noh)
-
 vim.keymap.set('n', '<leader>t', ":!")
 
-vim.keymap.set('n', '<leader>G', vim.cmd.LazyGit)
-
-vim.keymap.set('n', '<leader>i', vim.cmd.PasteImg)
-
--- Moving Around Window
-vim.keymap.set("n", "<leader>h", "<C-w>h")
-vim.keymap.set("n", "<leader>l", "<C-w>l")
-vim.keymap.set("n", "<leader>j", "<C-w>j")
-vim.keymap.set("n", "<leader>k", "<C-w>k")
-
--- System CLipboard Interaction
-vim.keymap.set("n", "<leader>sp", '"+p')
-vim.keymap.set("v", "<leader>sp", '"+p')
-vim.keymap.set("n", "<leader>sy", '"+y')
-vim.keymap.set("v", "<leader>sy", '"+y')
-
--- Plugins Keymaps
