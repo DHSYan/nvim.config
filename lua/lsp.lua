@@ -36,7 +36,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 local nmap = require("util.nmap")
 nmap("grf", vim.lsp.buf.format, "[G]lobal R [f]ormat")
-vim.keymap.set('i', '<c-space>', vim.lsp.completion.get)
+vim.keymap.set('i', '<c-l>', vim.lsp.completion.get)
 
 require("lsp.lua")
 require('lsp.clang')
