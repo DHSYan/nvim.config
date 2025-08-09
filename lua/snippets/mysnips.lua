@@ -1,3 +1,5 @@
+local nmap = require('util.nmap')
+
 nmap('<leader>sr',
     "<cmd>source ~/.dotfiles/nvim/lua/snippets/mysnips.lua<CR>",
     "SNIP: [S]nip [R]eload")
@@ -33,31 +35,33 @@ local k = require("luasnip.nodes.key_indexer").new_key
 local all = {
 }
 
-local lua = {}
+local lua = {
+    s("O(", fmta("O(<>)", { i(1, "___") })),
+}
 
 
 local markdown = {
     -- Obsidian
-    s("cal", fmt("> [!{}] {}\n> {}", {i(1, "type"), i(2, "title"), i(3, "body")})), -- Callout
-    s("ml", fmta("$<>$", {i(1, "INLINE")})),
-    s("mb", fmta("$$<>$$", {i(1, "BLOCK")})),
+    s("cal", fmt("> [!{}] {}\n> {}", { i(1, "type"), i(2, "title"), i(3, "body") })), -- Callout
+    s("ml", fmta("$<>$", { i(1, "INLINE") })),
+    s("mb", fmta("$$<>$$", { i(1, "BLOCK") })),
 
-    s("set", fmta("\\{<>\\}", {i(1, "set")})),
+    s("set", fmta("\\{<>\\}", { i(1, "set") })),
 
     -- Theoretical Computer Science
-    s("O(", fmta("O(<>)", {i(1, "___")})),
+    s("O(", fmta("O(<>)", { i(1, "___") })),
 
     -- Basic math Operators
-    s("frac", fmta("\\frac{<>}{<>}", {i(1, "___"), i(2, "___")})), -- I would love to trigger this when I type a number with a / and a number below it and it regex the numbers and put them where they belong
-    
+    s("frac", fmta("\\frac{<>}{<>}", { i(1, "___"), i(2, "___") })), -- I would love to trigger this when I type a number with a / and a number below it and it regex the numbers and put them where they belong
+
     -- Linear Algebra
-    s("vec", fmta("\\vec{<>}", {i(1, "letter")})),
+    s("vec", fmta("\\vec{<>}", { i(1, "letter") })),
 
     -- s({trig = "(%d)/(%d)", regTrig = true, snippetType="autosnippet"},
     --     fmta("\\frac{<>}{<>}",
     --         {
     --             f(function(arg, snip) return snips.captures[1] end, {}),
-    --             f(function(arg, snip) return snips.captures[2] end, {}) 
+    --             f(function(arg, snip) return snips.captures[2] end, {})
     --         }
     --
     --     )
@@ -73,43 +77,43 @@ local markdown = {
     -- ),
 
     -- Calculus
-    s("int", fmta("\\int_{<>}^{<>} <> d<>", {i(1, "from"), i(2, "to"), i(3, "grand"), i(4, "var")})), -- integral
-    s("lim", fmta("\\lim_{<>\\rightarrow<>} <>", {i(1, "var"), i(2, "num"), i(3, "expr")})), -- limit
-    s("partial", fmta("\\frac{\\partial <>}{\\partial <>}", {i(1, "f"), i(2, "x")})), -- partial
+    s("int", fmta("\\int_{<>}^{<>} <> d<>", { i(1, "from"), i(2, "to"), i(3, "grand"), i(4, "var") })), -- integral
+    s("lim", fmta("\\lim_{<>\\rightarrow<>} <>", { i(1, "var"), i(2, "num"), i(3, "expr") })),          -- limit
+    s("partial", fmta("\\frac{\\partial <>}{\\partial <>}", { i(1, "f"), i(2, "x") })),                 -- partial
     s("piecewise",
         fmta(
             "<> = \\begin{cases}\n<> & <> \\\\\n<> & <>\n\\end{cases}",
-            {i(1, "function"),
+            { i(1, "function"),
                 i(2, "output1"),
                 i(3, "output1_cond"),
                 i(4, "output2"),
-                i(5, "output2_cond"),}
+                i(5, "output2_cond"), }
         )
-    ), 
-    s("inf", t("\\infty"));
+    ),
+    s("inf", t("\\infty")),
 
     --- Stats
-    s("Variance", fmta("\\mathbb{V}\\text{ar}(<>)", {i(1, "X")})),
-    s("Expectation", fmta("\\mathbb{E}(<>)", {i(1, "X")})), 
-    s("Probability", fmta("\\mathbb{P}(<>)", {i(1, "X")})),
-    s("eventspace", t( "\\mathcal{F}")), 
+    s("Variance", fmta("\\mathbb{V}\\text{ar}(<>)", { i(1, "X") })),
+    s("Expectation", fmta("\\mathbb{E}(<>)", { i(1, "X") })),
+    s("Probability", fmta("\\mathbb{P}(<>)", { i(1, "X") })),
+    s("eventspace", t("\\mathcal{F}")),
 
     -- Math Proofs
     s("=>", t("\\implies ")),
-    s("->", t( "\\rightarrow ")),
-    s("<->", t( "\\leftrightarrow ")),
-    s("assoc", t( "\\leftrightarrow ")),
-    s("Reals", t( "\\mathbb{R} ")), 
+    s("->", t("\\rightarrow ")),
+    s("<->", t("\\leftrightarrow ")),
+    s("assoc", t("\\leftrightarrow ")),
+    s("Reals", t("\\mathbb{R} ")),
 
     -- Math Symbols, Canonical Meaning
-    s("Rn", t( "\\mathbb{R}^{n} ")),
-    s("~", t( "\\sim ")),
+    s("Rn", t("\\mathbb{R}^{n} ")),
+    s("~", t("\\sim ")),
 
     -- Math Arthithmeic notation
-    s("+-", t( "\\pm ")),
+    s("+-", t("\\pm ")),
 
     -- Math Symbols, Variables
-    s("w", t( "\\omega ")),
+    s("w", t("\\omega ")),
     s("a", t("\\alpha ")),
     s("d", t("\\delta ")),
     s("D", t("\\Delta ")),
@@ -129,3 +133,14 @@ ls.snippets = {
 -- Check :help luasnip
 -- for it's API
 ls.add_snippets(nil, ls.snippets, nil)
+
+-- ls.setup();
+vim.keymap.set({ "i" }, "<C-K>", function() ls.expand() end, { silent = true })
+vim.keymap.set({ "i", "s" }, "<C-L>", function() ls.jump(1) end, { silent = true })
+vim.keymap.set({ "i", "s" }, "<C-J>", function() ls.jump(-1) end, { silent = true })
+
+vim.keymap.set({ "i", "s" }, "<C-E>", function()
+    if ls.choice_active() then
+        ls.change_choice(1)
+    end
+end, { silent = true })
