@@ -1,3 +1,5 @@
+vim.cmd("colorscheme retrobox")
+
 vim.opt.guicursor = ""
 
 vim.opt.tabstop = 4

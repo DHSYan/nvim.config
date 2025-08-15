@@ -9,7 +9,6 @@ vim.pack.add({
 
 local nmap = require("util.nmap")
 
-vim.cmd("colorscheme retrobox")
 
 require("plugins-options.oil")
 require("plugins-options.mini")
