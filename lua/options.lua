@@ -25,7 +25,7 @@ vim.opt.swapfile = true
 vim.opt.backup = false
 vim.opt.writebackup = true
 
-vim.opt.mouse= nil
+vim.opt.mouse = nil
 
 -- vim.opt.wrap = true
 vim.opt.wrap = false
@@ -37,12 +37,12 @@ vim.opt.termguicolors = true
 
 -- vim.opt.undodir = os.getenv("HOME") .. "/nvim-undo"
 vim.opt.undodir = "." -- save the undofile in the same folder the editing file
-                      -- is in
+-- is in
 vim.opt.undofile = true
 
 -- vim.opt.formatoptions="cro"
 
-vim.opt.scrolloff = 8 -- so you would never have less then 8 line below you
+vim.opt.scrolloff = 8       -- so you would never have less then 8 line below you
 
 vim.opt.colorcolumn = "100" -- puts a color thingy at column 80
 

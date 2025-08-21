@@ -42,3 +42,4 @@ require("lsp.lua")
 require('lsp.clang')
 require('lsp.nix')
 require 'lspconfig'.tinymist.setup {}
+require 'lspconfig'.ts_ls.setup{}

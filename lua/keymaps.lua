@@ -13,5 +13,6 @@ vim.keymap.set("x", "<leader>p", "\"_dP")
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
-vim.keymap.set('n', '<leader>t', ":!")
+vim.keymap.set('n', '<leader>t', ":! ")
+vim.keymap.set('n', '<leader>', ":lua ")
 
