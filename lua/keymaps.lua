@@ -14,5 +14,5 @@ vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
 vim.keymap.set('n', '<leader>t', ":! ")
-vim.keymap.set('n', '<leader>', ":lua ")
-
+vim.keymap.set('n', '<leader>l', ":lua ")
+vim.keymap.set('v', '<leader>gcq', "g@<CR>gv<CR>gq")
