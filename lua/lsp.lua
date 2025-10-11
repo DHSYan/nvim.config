@@ -42,4 +42,5 @@ require("lsp.lua")
 require('lsp.clang')
 require('lsp.nix')
 require 'lspconfig'.tinymist.setup {}
-require 'lspconfig'.ts_ls.setup{}
+require 'lspconfig'.ts_ls.setup {}
+require 'lspconfig'.harper_ls.setup {}
