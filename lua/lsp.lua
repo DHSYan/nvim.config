@@ -19,16 +19,16 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
         -- Auto-format ("lint") on save.
         -- Usually not needed if server supports "textDocument/willSaveWaitUntil".
-        if not client:supports_method('textDocument/willSaveWaitUntil')
-            and client:supports_method('textDocument/formatting') then
-            vim.api.nvim_create_autocmd('BufWritePre', {
-                group = vim.api.nvim_create_augroup('my.lsp', { clear = false }),
-                buffer = args.buf,
-                callback = function()
-                    vim.lsp.buf.format({ bufnr = args.buf, id = client.id, timeout_ms = 1000 })
-                end,
-            })
-        end
+        -- if not client:supports_method('textDocument/willSaveWaitUntil')
+        --     and client:supports_method('textDocument/formatting') then
+        --     vim.api.nvim_create_autocmd('BufWritePre', {
+        --         group = vim.api.nvim_create_augroup('my.lsp', { clear = false }),
+        --         buffer = args.buf,
+        --         callback = function()
+        --             vim.lsp.buf.format({ bufnr = args.buf, id = client.id, timeout_ms = 1000 })
+        --         end,
+        --     })
+        -- end
     end,
 })
 
@@ -38,9 +38,21 @@ local nmap = require("util.nmap")
 nmap("grf", vim.lsp.buf.format, "[G]lobal R [f]ormat")
 vim.keymap.set('i', '<c-l>', vim.lsp.completion.get)
 
-require("lsp.lua")
-require('lsp.clang')
-require('lsp.nix')
+require("lsp.lua") -- this has extra settings so it is abstracted in an external file
+require 'lspconfig'.nixd.setup {}
+require 'lspconfig'.clangd.setup {}
 require 'lspconfig'.tinymist.setup {}
 require 'lspconfig'.ts_ls.setup {}
 require 'lspconfig'.harper_ls.setup {}
+require 'lspconfig'.pylsp.setup {
+    settings = {
+        pylsp = {
+            plugins = {
+                pycodestyle = {
+                    ignore = { 'W391' },
+                    maxLineLength = 100
+                }
+            }
+        }
+    }
+}
