@@ -43,7 +43,7 @@ require 'lspconfig'.nixd.setup {}
 require 'lspconfig'.clangd.setup {}
 require 'lspconfig'.tinymist.setup {}
 require 'lspconfig'.ts_ls.setup {}
-require 'lspconfig'.harper_ls.setup {}
+-- require 'lspconfig'.harper_ls.setup {}
 require 'lspconfig'.pylsp.setup {
     settings = {
         pylsp = {
