@@ -1,0 +1,16 @@
+{
+  "plugins": {
+    "LuaSnip": [],
+    "mini.pick": [],
+    "no-neck-pain.nvim": [],
+    "nvim-lspconfig": [],
+    "nvim-treesitter": {
+      "rev": "42fc28ba",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter"
+    },
+    "nvim-web-devicons": [],
+    "obsidian.nvim": [],
+    "oil.nvim": [],
+    "plenary.nvim": []
+  }
+}
