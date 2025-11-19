@@ -51,8 +51,11 @@ vim.opt.cursorline = true
 
 vim.opt.conceallevel = 2; -- for obsidian, see ":h conceallevel"
 -- vim.opt.concealcursor = "vi"
---
---
+
+
+vim.opt.winborder = "double";
+
+
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "asm",
     callback = function()
