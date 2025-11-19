@@ -8,15 +8,15 @@ vim.api.nvim_create_autocmd('LspAttach', {
         end
 
         -- Enable auto-completion. Note: Use CTRL-Y to select an item. |complete_CTRL-Y|
-        if client:supports_method('textDocument/completion') then
-            -- Optional: trigger autocompletion on EVERY keypress. May be slow!
-            -- local chars = {}; for i = 32, 126 do table.insert(chars, string.char(i)) end
-            -- client.server_capabilities.completionProvider.triggerCharacters = chars
-
-            vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = false })
-            -- the auto trigger is so bad so rn
-        end
-
+        -- if client:supports_method('textDocument/completion') then
+        --     -- Optional: trigger autocompletion on EVERY keypress. May be slow!
+        --     -- local chars = {}; for i = 32, 126 do table.insert(chars, string.char(i)) end
+        --     -- client.server_capabilities.completionProvider.triggerCharacters = chars
+        --
+        --     vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = false })
+        --     -- the auto trigger is so bad so rn
+        -- end
+        --
         -- Auto-format ("lint") on save.
         -- Usually not needed if server supports "textDocument/willSaveWaitUntil".
         -- if not client:supports_method('textDocument/willSaveWaitUntil')
@@ -33,12 +33,32 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 
-
 local nmap = require("util.nmap")
 nmap("grf", vim.lsp.buf.format, "[G]lobal R [f]ormat")
-vim.keymap.set('i', '<c-l>', vim.lsp.completion.get)
+-- vim.keymap.set('i', '<c-l>', vim.lsp.completion.get)
 
 require("lsp.lua") -- this has extra settings so it is abstracted in an external file
+
+-- vim.lsp.config['lua_ls'] = {
+--   -- Command and arguments to start the server.
+--   cmd = { 'lua-language-server' },
+--   -- Filetypes to automatically attach to.
+--   filetypes = { 'lua' },
+--   -- Sets the "workspace" to the directory where any of these files is found.
+--   -- Files that share a root directory will reuse the LSP server connection.
+--   -- Nested lists indicate equal priority, see |vim.lsp.Config|.
+--   root_markers = { { '.luarc.json', '.luarc.jsonc' }, '.git' },
+--   -- Specific settings to send to the server. The schema is server-defined.
+--   -- Example: https://raw.githubusercontent.com/LuaLS/vscode-lua/master/setting/schema.json
+--   settings = {
+--     Lua = {
+--       runtime = {
+--         version = 'LuaJIT',
+--       }
+--     }
+--   }
+-- }
+
 require 'lspconfig'.nixd.setup {}
 require 'lspconfig'.clangd.setup {}
 require 'lspconfig'.tinymist.setup {}
