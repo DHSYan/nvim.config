@@ -8,6 +8,7 @@ vim.pack.add({
     { src = "https://github.com/nvim-lua/plenary.nvim" },
     { src = 'https://github.com/epwalsh/obsidian.nvim' },
     { src = 'https://github.com/nvim-treesitter/nvim-treesitter' },
+    { src = "https://github.com/Saghen/blink.cmp" },
 })
 
 local nmap = require("util.nmap")
@@ -20,6 +21,10 @@ require("plugins-options.oil")
 require("plugins-options.mini")
 require("snippets.mysnips")
 require("plugins-options.obsidian")
+
+require'blink.cmp'.setup{
+    signature = { enabled = true }
+}
 
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all" (the listed parsers MUST always be installed)
