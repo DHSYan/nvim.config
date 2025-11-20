@@ -8,6 +8,10 @@
       "rev": "b19413d214068f316c78978b08264ed1c41830ec",
       "src": "https://github.com/Saghen/blink.cmp"
     },
+    "git-blame.nvim": {
+      "rev": "5c536e2d4134d064aa3f41575280bc8a2a0e03d7",
+      "src": "https://github.com/f-person/git-blame.nvim"
+    },
     "mini.pick": {
       "rev": "82ec629ca108c7b96b8b9bb733d235b39e137690",
       "src": "https://github.com/echasnovski/mini.pick"
